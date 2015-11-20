@@ -1,0 +1,297 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		251C9B5A1BFF427C00B1AEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251C9B591BFF427C00B1AEF3 /* AppDelegate.swift */; };
+		251C9B5F1BFF427C00B1AEF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251C9B5D1BFF427C00B1AEF3 /* Main.storyboard */; };
+		251C9B611BFF427C00B1AEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251C9B601BFF427C00B1AEF3 /* Assets.xcassets */; };
+		251C9B641BFF427C00B1AEF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251C9B621BFF427C00B1AEF3 /* LaunchScreen.storyboard */; };
+		251C9B6C1BFF482200B1AEF3 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251C9B6B1BFF482200B1AEF3 /* AuthorizationViewController.swift */; };
+		251C9B6E1BFF6C3C00B1AEF3 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251C9B6D1BFF6C3C00B1AEF3 /* LoggedInViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		251C9B561BFF427C00B1AEF3 /* NestLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		251C9B591BFF427C00B1AEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		251C9B5E1BFF427C00B1AEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		251C9B601BFF427C00B1AEF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		251C9B631BFF427C00B1AEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		251C9B651BFF427C00B1AEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		251C9B6B1BFF482200B1AEF3 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		251C9B6D1BFF6C3C00B1AEF3 /* LoggedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		251C9B531BFF427C00B1AEF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		251C9B4D1BFF427C00B1AEF3 = {
+			isa = PBXGroup;
+			children = (
+				251C9B581BFF427C00B1AEF3 /* NestLogin */,
+				251C9B571BFF427C00B1AEF3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		251C9B571BFF427C00B1AEF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				251C9B561BFF427C00B1AEF3 /* NestLogin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		251C9B581BFF427C00B1AEF3 /* NestLogin */ = {
+			isa = PBXGroup;
+			children = (
+				251C9B591BFF427C00B1AEF3 /* AppDelegate.swift */,
+				251C9B6D1BFF6C3C00B1AEF3 /* LoggedInViewController.swift */,
+				251C9B6B1BFF482200B1AEF3 /* AuthorizationViewController.swift */,
+				251C9B5D1BFF427C00B1AEF3 /* Main.storyboard */,
+				251C9B601BFF427C00B1AEF3 /* Assets.xcassets */,
+				251C9B621BFF427C00B1AEF3 /* LaunchScreen.storyboard */,
+				251C9B651BFF427C00B1AEF3 /* Info.plist */,
+			);
+			path = NestLogin;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		251C9B551BFF427C00B1AEF3 /* NestLogin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251C9B681BFF427C00B1AEF3 /* Build configuration list for PBXNativeTarget "NestLogin" */;
+			buildPhases = (
+				251C9B521BFF427C00B1AEF3 /* Sources */,
+				251C9B531BFF427C00B1AEF3 /* Frameworks */,
+				251C9B541BFF427C00B1AEF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NestLogin;
+			productName = NestLogin;
+			productReference = 251C9B561BFF427C00B1AEF3 /* NestLogin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		251C9B4E1BFF427C00B1AEF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Michael Dautermann";
+				TargetAttributes = {
+					251C9B551BFF427C00B1AEF3 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 251C9B511BFF427C00B1AEF3 /* Build configuration list for PBXProject "NestLogin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 251C9B4D1BFF427C00B1AEF3;
+			productRefGroup = 251C9B571BFF427C00B1AEF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				251C9B551BFF427C00B1AEF3 /* NestLogin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		251C9B541BFF427C00B1AEF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251C9B641BFF427C00B1AEF3 /* LaunchScreen.storyboard in Resources */,
+				251C9B611BFF427C00B1AEF3 /* Assets.xcassets in Resources */,
+				251C9B5F1BFF427C00B1AEF3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		251C9B521BFF427C00B1AEF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				251C9B6C1BFF482200B1AEF3 /* AuthorizationViewController.swift in Sources */,
+				251C9B5A1BFF427C00B1AEF3 /* AppDelegate.swift in Sources */,
+				251C9B6E1BFF6C3C00B1AEF3 /* LoggedInViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		251C9B5D1BFF427C00B1AEF3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				251C9B5E1BFF427C00B1AEF3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		251C9B621BFF427C00B1AEF3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				251C9B631BFF427C00B1AEF3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		251C9B661BFF427C00B1AEF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		251C9B671BFF427C00B1AEF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		251C9B691BFF427C00B1AEF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NestLogin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myke.NestLogin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		251C9B6A1BFF427C00B1AEF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NestLogin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myke.NestLogin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		251C9B511BFF427C00B1AEF3 /* Build configuration list for PBXProject "NestLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251C9B661BFF427C00B1AEF3 /* Debug */,
+				251C9B671BFF427C00B1AEF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		251C9B681BFF427C00B1AEF3 /* Build configuration list for PBXNativeTarget "NestLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251C9B691BFF427C00B1AEF3 /* Debug */,
+				251C9B6A1BFF427C00B1AEF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 251C9B4E1BFF427C00B1AEF3 /* Project object */;
+}
