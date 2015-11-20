@@ -19,8 +19,6 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-
         super.viewWillDisappear(animated)
     }
     
@@ -63,13 +61,33 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
                     
                     if(statusCode == 200) {
                         let stringFromData = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let loggedInVC = storyboard.instantiateViewControllerWithIdentifier("LoggedInViewController") as! LoggedInViewController
-                        loggedInVC.accessTokenText = stringFromData
                         
-                        // need to do UI things on the main queue
-                        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-                            self.navigationController?.pushViewController(loggedInVC, animated: true)
+                        do {
+                            let parsedJson = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0))
+                            guard let accessTokenDict = parsedJson as? NSDictionary else {
+                                print("Not a Dictionary")
+                                // put in function
+                                return
+                            }
+
+                            let expiresInSeconds = accessTokenDict["expires_in"] as! Double
+                            
+                            let expirationDate = NSDate().dateByAddingTimeInterval(expiresInSeconds)
+                            
+                            NSUserDefaults.standardUserDefaults().setObject(expirationDate, forKey: "expiration_date")
+                            
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let loggedInVC = storyboard.instantiateViewControllerWithIdentifier("LoggedInViewController") as! LoggedInViewController
+                            loggedInVC.accessTokenText = stringFromData
+                            
+                            // need to do UI things on the main queue
+                            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                                self.navigationController?.pushViewController(loggedInVC, animated: true)
+                            }
+                            
+                            
+                        } catch let jsonError as NSError {
+                            print("\(jsonError)")
                         }
                     } else {
                         print("Error could not login \(statusCode)")
@@ -113,8 +131,7 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
         print("finished loading \(webView.request!.URL!.absoluteString)")
         
         if let request = webView.request {
-            if let requestURL = request.URL
-            {
+            if let requestURL = request.URL {
                 if requestURL.host == "mail.deathstar.org" {
                     getAuthCode(requestURL)
                 }
