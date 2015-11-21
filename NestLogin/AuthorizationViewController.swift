@@ -14,7 +14,6 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -30,7 +29,7 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
             webView.loadRequest(request)
         }
     }
-
+    
     func saveAccessToken(withAuthCode : String?)
     {
         if let authCode = withAuthCode as String! {

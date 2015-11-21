@@ -33,9 +33,16 @@ class LoggedInViewController: UIViewController {
         return nil
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.Plain, target:self, action:"logout:")
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+
         textView.text = accessTokenText
         
         LoggedInViewController.getAuthorizationToken()
@@ -49,6 +56,45 @@ class LoggedInViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    func logout(sender: UIBarButtonItem) {
+        
+        if let accessToken = LoggedInViewController.getAuthorizationToken() {
+            let url = NSURL(string: "https://api.home.nest.com/oauth2/access_tokens/\(accessToken)")
+            let request = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "DELETE"
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+                
+                if let error = error {
+                    print("error while deleting tokens in \(error.localizedDescription)")
+                } else {
+                    var statusCode : Int = 204 // start off with 204 - No Content, which is what a DELETE call returns when the server fulfills the request
+                    
+                    if let httpResponse = response as? NSHTTPURLResponse {
+                        statusCode = httpResponse.statusCode
+                    }
+
+                    let ud = NSUserDefaults.standardUserDefaults()
+                    ud.removeObjectForKey("expiration_date")
+                    ud.removeObjectForKey("access_token")
+
+                    if(statusCode != 204) {
+                        print("Error could not delete token on Nest's servers \(statusCode)")
+                    }
+                    
+                    // need to do UI things on main thread
+                    dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
+
+                }
+            })
+            task.resume()
+        }
+    }
+    
+
     
     func populateFields()
     {

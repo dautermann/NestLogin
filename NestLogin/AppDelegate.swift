@@ -16,18 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialVC : UIViewController?
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
+
+        let navigationController = self.window!.rootViewController as! UINavigationController
+
         // do we already have an authorization token that isn't expired??
         if let _ = LoggedInViewController.getAuthorizationToken() {
-            initialVC = storyboard.instantiateViewControllerWithIdentifier("LoggedInViewController")
-        } else {
-            initialVC = storyboard.instantiateViewControllerWithIdentifier("AuthorizationViewController")
+            let loggedInVC = storyboard.instantiateViewControllerWithIdentifier("LoggedInViewController") as! LoggedInViewController
+
+            navigationController.pushViewController(loggedInVC, animated: true)
         }
         
-        let navigationController = UINavigationController.init(rootViewController: initialVC!)
-        self.window!.rootViewController = navigationController
         return true
     }
 

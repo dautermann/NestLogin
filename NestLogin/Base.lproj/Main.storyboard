@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GXx-wx-pDE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -34,14 +34,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wIo-FS-Dcc" secondAttribute="bottom" id="wA3-Iv-JEW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="12p-fh-8MP"/>
+                    <navigationItem key="navigationItem" id="12p-fh-8MP">
+                        <barButtonItem key="backBarButtonItem" title="Logout" id="a0l-wq-ZB9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="wIo-FS-Dcc" id="aND-hl-9kz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="389"/>
+            <point key="canvasLocation" x="1958" y="389"/>
         </scene>
         <!--Logged In View Controller-->
         <scene sceneID="wVk-cD-wT6">
@@ -95,6 +97,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="m6G-u2-gWl"/>
                     <connections>
                         <outlet property="authTokenLabel" destination="uCU-8z-VcW" id="rti-yf-3PQ"/>
                         <outlet property="expirationDateLabel" destination="9uS-Is-a50" id="0Dl-T2-1m6"/>
@@ -103,7 +106,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIH-yK-BEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880" y="389"/>
+            <point key="canvasLocation" x="2692" y="389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4ru-06-yFq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GXx-wx-pDE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PJm-AQ-wpp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ags-9s-QNJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGu-VD-0e3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146" y="389"/>
         </scene>
     </scenes>
 </document>
