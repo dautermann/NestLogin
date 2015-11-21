@@ -31,16 +31,6 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     func saveAccessToken(withAuthCode : String?)
     {
         if let authCode = withAuthCode as String! {
@@ -75,6 +65,7 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
                             let expirationDate = NSDate().dateByAddingTimeInterval(expiresInSeconds)
                             
                             NSUserDefaults.standardUserDefaults().setObject(expirationDate, forKey: "expiration_date")
+                            NSUserDefaults.standardUserDefaults().setObject(accessTokenDict["access_token"], forKey: "access_token")
                             
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let loggedInVC = storyboard.instantiateViewControllerWithIdentifier("LoggedInViewController") as! LoggedInViewController
@@ -84,8 +75,6 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
                             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                                 self.navigationController?.pushViewController(loggedInVC, animated: true)
                             }
-                            
-                            
                         } catch let jsonError as NSError {
                             print("\(jsonError)")
                         }
@@ -114,6 +103,10 @@ class AuthorizationViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    // MARK: - web view delegate methods
+    
+    // for some unknown reason, we're not catching the redirect happening via shouldStartLoadWithRequest 
+    // but instead it gets caught in webViewDidFinishLoad
     func webView(webView: UIWebView,
         shouldStartLoadWithRequest request: NSURLRequest,
         navigationType: UIWebViewNavigationType) -> Bool{

@@ -12,10 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialVC : UIViewController?
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        // do we already have an authorization token that isn't expired??
+        if let _ = LoggedInViewController.getAuthorizationToken() {
+            initialVC = storyboard.instantiateViewControllerWithIdentifier("LoggedInViewController")
+        } else {
+            initialVC = storyboard.instantiateViewControllerWithIdentifier("AuthorizationViewController")
+        }
+        
+        let navigationController = UINavigationController.init(rootViewController: initialVC!)
+        self.window!.rootViewController = navigationController
+        return true
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
 

@@ -7,29 +7,30 @@
 //
 
 import UIKit
+import Foundation
 
 class LoggedInViewController: UIViewController {
 
     var accessTokenText : String = ""
     
+    @IBOutlet var authTokenLabel : UILabel!
+    @IBOutlet var expirationDateLabel : UILabel!
     @IBOutlet var textView : UITextView!
     
-    func getAuthorizationToken() -> String {
+    // hey hey, it's a class / static method!
+    class func getAuthorizationToken() -> String? {
     
         let ud  = NSUserDefaults()
 
-        let expirationDate = ud.objectForKey("expiration_date") as! NSDate
-        
-        let formatter = NSDateFormatter();
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ";
-        let defaultTimeZoneStr = formatter.stringFromDate(expirationDate);
-        // "2014-07-23 11:01:35 -0700" <-- same date, local, but with seconds
-        formatter.timeZone = NSTimeZone.localTimeZone()
-        let utcTimeZoneStr = formatter.stringFromDate(expirationDate);
-        
-        print("\(utcTimeZoneStr)")
-
-        return ""
+        if let expirationDate = ud.objectForKey("expiration_date") as? NSDate {
+    
+            let timeInterval = NSDate().timeIntervalSinceDate(expirationDate)
+            
+            if timeInterval < 0 {
+                return ud.objectForKey("access_token") as? String
+            }
+        }
+        return nil
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,14 +38,34 @@ class LoggedInViewController: UIViewController {
         
         textView.text = accessTokenText
         
-        getAuthorizationToken()
+        LoggedInViewController.getAuthorizationToken()
         
         print("\(accessTokenText)")
+        
+        populateFields()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func populateFields()
+    {
+        let ud  = NSUserDefaults()
+        
+        let expirationDate = ud.objectForKey("expiration_date") as! NSDate
+        
+        let formatter = NSDateFormatter();
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ";
+        formatter.timeZone = NSTimeZone.localTimeZone() // are we in EST or PST??
+        let localTimeString = formatter.stringFromDate(expirationDate);
+        
+        expirationDateLabel.text = localTimeString
+
+        let authTokenString = ud.objectForKey("access_token") as! String
+        authTokenLabel.text = authTokenString
+        
     }
     
 }
